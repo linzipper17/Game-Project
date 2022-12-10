@@ -15,7 +15,7 @@ public class Death : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(player1.transform.position.y < -10 || player2.transform.position.y < -10)
+        if(player1.transform.position.y < -50 || player2.transform.position.y < -50)
         {
             Die();
         }

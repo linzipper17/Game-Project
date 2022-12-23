@@ -6,27 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
-    public GameObject player1;
-    public GameObject player2;
-
-    public GameObject spawn1;
-    public GameObject spawn2;
-
+    public GameObject playerManager;
 
     private void FixedUpdate()
     {
-        if(player1.transform.position.y < -50 || player2.transform.position.y < -50)
+        if (Input.GetKey(KeyCode.R))
         {
             Die();
         }
     }
 
-    public void Die()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        player1.transform.position = spawn1.transform.position;
-        player2.transform.position = spawn2.transform.position;
+        Die();
     }
 
-        
-        
+    public void Die()
+    {
+        playerManager.BroadcastMessage("Death");
+    }
 }

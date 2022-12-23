@@ -337,10 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57643478e375d5d4cb44a3ff98cddbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 5232173054472899483}
-  player2: {fileID: 5232173053245147158}
-  spawn1: {fileID: 5232173053072533576}
-  spawn2: {fileID: 5232173053775993016}
+  playerManager: {fileID: 0}
 --- !u!1 &5232173053212192326
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +381,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5647059, g: 0.6509804, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.9529412, g: 0.8745098, b: 0.63529414, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -661,7 +658,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5613208, g: 0.64860135, b: 1, a: 1}
+  m_BackGroundColor: {r: 0.9529412, g: 0.8745098, b: 0.63529414, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -839,4 +836,4 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 2944
-  groundCheck: {fileID: 5232173052802583986}
+  groundCheck: {fileID: 5232173053903992287}

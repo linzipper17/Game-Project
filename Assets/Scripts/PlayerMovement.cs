@@ -35,17 +35,12 @@ public class PlayerMovement : MonoBehaviour
     private bool _canDash = true;
     private Vector2 _dashInput;
     private float _ctc;
-
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody2D>();
-        transform.position = playerSpawn.transform.position;
-    }
-
+    
     void Start()
     {
         // TODO: animations
-        
+        _rb = GetComponent<Rigidbody2D>();
+        transform.position = playerSpawn.transform.position;
         _facingRight = true;
         _canJump = true;
     }
@@ -221,6 +216,16 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(pm.dashTime);
         _isDashing = false;
+    }
+
+    #endregion
+
+    #region Death
+
+    public void Death()
+    {
+        transform.position = playerSpawn.transform.position;
+        _rb.velocity = Vector2.zero;
     }
 
     #endregion

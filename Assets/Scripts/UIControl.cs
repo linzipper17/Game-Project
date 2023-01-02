@@ -6,16 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class UIControl : MonoBehaviour
 {
-    public static bool IsPaused = false;
+    public static bool isPaused = false, isControlling = false;
     public GameObject pauseMenuUI;
+    public GameObject controlMenuUI;
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(IsPaused)
+            if(isPaused)
             {
                 Resume();
+            }
+            else if (isControlling)
+            {
+                Pause();
             }
             else
             {
@@ -24,20 +29,34 @@ public class UIControl : MonoBehaviour
         }
     }
 
+    #region PauseMenu
+
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        IsPaused = true;
+        isPaused = true;
     }
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        IsPaused = false;
+        isPaused = false;
     }
 
+    #endregion
+
+    #region Controls
+
+    public void ControlButtonClicked()
+    {
+        isControlling = true;
+        isPaused = false;
+    }
+
+    #endregion
+    
     public void ReturnToMenu()
     {
         SceneManager.LoadScene(0, LoadSceneMode.Single);

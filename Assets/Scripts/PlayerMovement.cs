@@ -6,15 +6,14 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public PlayerManager pm;
-    
-    [FormerlySerializedAs("XInput")] public string xInput;
-    [FormerlySerializedAs("YInput")] public string yInput;
-    
-    public string dashInput;
+
+    public InputAction playerMovement;
+    public InputAction playerDash;
 
     public GameObject playerSpawn;
 
@@ -35,7 +34,19 @@ public class PlayerMovement : MonoBehaviour
     private bool _canDash = true;
     private Vector2 _dashInput;
     private float _ctc;
-    
+
+    private void OnEnable()
+    {
+        playerMovement.Enable();
+        playerDash.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerMovement.Disable();
+        playerDash.Disable();
+    }
+
     void Start()
     {
         // TODO: animations
@@ -49,9 +60,13 @@ public class PlayerMovement : MonoBehaviour
     {
         #region InputChecks
         
-        _moveInput.x = Input.GetAxisRaw(xInput);
-        _moveInput.y = Input.GetAxisRaw(yInput);
-        _dashInput.x = Input.GetAxisRaw(dashInput);
+        // _moveInput.x = Input.GetAxisRaw(xInput);
+        // _moveInput.y = Input.GetAxisRaw(yInput);
+        // _dashInput.x = Input.GetAxisRaw(dashInput);
+        // _dashInput.y = 0f;
+        
+        _moveInput = playerMovement.ReadValue<Vector2>();
+        _dashInput.x = playerDash.ReadValue<float>();
         _dashInput.y = 0f;
 
         #endregion

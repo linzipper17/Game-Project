@@ -34,15 +34,19 @@ public class UIControl : MonoBehaviour
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
+        controlMenuUI.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
+        isControlling = false;
     }
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        controlMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        isControlling = false;
     }
 
     #endregion
@@ -51,6 +55,8 @@ public class UIControl : MonoBehaviour
 
     public void ControlButtonClicked()
     {
+        controlMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
         isControlling = true;
         isPaused = false;
     }

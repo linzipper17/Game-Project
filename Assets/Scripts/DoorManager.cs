@@ -11,14 +11,13 @@ public class DoorManager : MonoBehaviour
     private int _interactableAmount = 0;
 
 
-    // private void Start()
-    // {
-    //     _interactableAmount = interactables.Count;
-    // }
+    private void Start()
+    {
+        _interactableAmount = interactables.Count;
+    }
 
     private void Update()
     {
-        _interactableAmount = interactables.Count;
         if (_interactableAmount == 1)
         {
             if(interactables[0].GetComponent<Interactables>().interactableDown == true)

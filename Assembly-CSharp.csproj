@@ -44,11 +44,11 @@
      <Compile Include="Assets\Scripts\ControlStorage.cs" />
      <Compile Include="Assets\Scripts\Death.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\Interactables.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\DoorManager.cs" />
      <Compile Include="Assets\Scripts\UIControl.cs" />
      <Compile Include="Assets\Scripts\ControlController.cs" />
-     <Compile Include="Assets\Scripts\DoorManager.cs" />
-     <Compile Include="Assets\Scripts\Interactables.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scenes" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

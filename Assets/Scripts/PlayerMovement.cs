@@ -10,6 +10,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    public Animator animator;
+    public float currentSpeed;
+    public bool isWalking = false;
+    
     public PlayerManager pm;
 
     public InputAction playerMovement;
@@ -192,6 +197,16 @@ public class PlayerMovement : MonoBehaviour
             _rb.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);
         }
         
+        #endregion
+
+        #region AnimationComponents
+
+        currentSpeed = _rb.velocity.x;
+        isWalking = Mathf.Abs(_moveInput.x) > 0.01f;
+        
+        animator.SetFloat("Speed", Mathf.Abs(currentSpeed));
+        animator.SetBool("isWalking", isWalking);
+
         #endregion
     }
 
